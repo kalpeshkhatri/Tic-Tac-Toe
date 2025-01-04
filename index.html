@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        /* general body style */
+        body{
+            font-family: 'Arial','sans-serif';
+            background: linear-gradient(90deg,#6a11ca,#e0e9eb);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            color: black;
+        }
+
+        /* container style */
+        .container{
+            background-color: aliceblue;
+            min-height: 400px;
+            width: 400px;
+            text-align: center;
+            background-color: rgba(red, green, blue, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px  rgba(0,0,0,1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* header styling */
+        h1{
+            font-size: 2.5rem;
+            color: #0a6e82;
+            background-color: antiquewhite;
+            box-shadow: 0 4px 15px  rgba(0,0,0,1);
+            margin-bottom: 20px;
+        }
+
+        /* Board styling */
+        .board{
+            display: grid;
+            background-color: rgb(252, 238, 220);
+            grid-template-columns:repeat(3,120px);
+            grid-template-rows: repeat(3,120px);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* individual cell */
+        .cell{
+            width: 120px;
+            height: 120px;
+            background-color: rgb(197, 255, 255);
+            border: 2px solid black;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            overflow: hidden;
+            color: #333;
+            font-weight: bold;
+            cursor:pointer;
+            transition: all 0.3s ease;
+
+        }
+
+
+        .cell:hover{
+            background-color: burlywood;
+        }
+
+
+        /* restart button style */
+        button{
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* jyare aa button par hover lagavi ne background color change karso tyare te 0.3 second lese. */
+
+        }
+
+        button:hover{
+            background-color: #218838;
+        }
+
+        button:active{
+            transition: scale(0.98);
+        }
+
+        /* winning message style */
+        .winning-message{
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* For Responsive styles */
+        @media(max-width:500px){
+            .board{
+                grid-template-columns: repeat(3,100px);
+                grid-template-rows: repeat(3,100px);
+            }
+
+            .cell{
+                width: 100px;
+                height: 100px;
+            }
+
+            button{
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            h1{
+                font-size: 2rem;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <!-- making tik tack toe board -->
+        <div class="board">
+            <div class="cell" id="0"></div>
+            <div class="cell" id="1"></div>
+            <div class="cell" id="2"></div>
+            <div class="cell" id="3"></div>
+            <div class="cell" id="4"></div>
+            <div class="cell" id="5"></div>
+            <div class="cell" id="6"></div>
+            <div class="cell" id="7"></div>
+            <div class="cell" id="8"></div>
+        </div>
+
+        <!--for restart game button -->
+        <button id="restartButton">Restart Game</button>
+
+        <!-- winning message -->
+        <p class="winning-message" id="winningMessage"></p>
+
+
+    </div>
+
+    <script src="day26.3(p).js"></script>
+    
+</body>
+</html>
