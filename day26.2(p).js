@@ -1,22 +1,3 @@
-// let turn ='O';
-// let total_turn=0;
-
-// const winner=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-
-// let arrangement=new Array(9).fill('E');
-// //arrangement=['E','E','E','E','E','E','E','E','E']
-
-// // function Checkwinner(){
-// //     for (let [num1,num2,num3] of winner){
-// //         if (arrangement[num1]=='E' && arrangement[num1])
-// //     }
-// // }
-
-// const board1=document.querySelector('.board');
-// const boardlogic=function(event){
-//     if(arrangement[event.target.id]==='E'){}
-// }
-
 
 
 
@@ -24,11 +5,12 @@
 const winner=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
 let arrangement=['E','E','E','E','E','E','E','E','E']
-
+let pair=[]
 function checkwinner(){
     for (let [n1,n2,n3] of winner){
         if ((arrangement[n1]=='O' && arrangement[n2]=='O' && arrangement[n3]=='O')||(arrangement[n1]=='X' && arrangement[n2]=='X' && arrangement[n3]=='X')){
             // console.log([n1,n2,n3]);
+            pair=[n1,n2,n3];
             return 1;
 
         }
@@ -39,6 +21,13 @@ function checkwinner(){
     return 0;
 
 }
+function fillcolor(pair1,color){
+    for(let i of pair1){
+        const red=document.getElementById(i);
+        red.style.backgroundColor=color;
+    }
+}
+
 
 //this function checkwinner1 is depend on all index element is same or not . and it should not be E
 function checkwinner1(){
@@ -272,7 +261,8 @@ board.addEventListener('click',(event)=>{
         turn='X';
         arrangement[event.target.id]='O';
         if (checkwinner()){
-            win.innerHTML='O is winner'
+            win.innerHTML='O is winner';
+            fillcolor(pair,'red');
         
         }
     }
@@ -283,6 +273,7 @@ board.addEventListener('click',(event)=>{
             arrangement[event.target.id]='X';
             if (checkwinner()){
                 win.innerHTML='X is winner'
+                fillcolor(pair,'red')
                 
             }
         }
@@ -315,6 +306,7 @@ restart1.addEventListener('click',()=>{
     
     turn='O';
     round=0;
+    fillcolor(pair,'rgb(197, 255, 255)')
     
 
 })
